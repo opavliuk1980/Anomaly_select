@@ -1,0 +1,25 @@
+fl_mode,method,is_core_robust,mean_precision,mean_recall,mean_f1,mean_event_f1,mean_event_recall,mean_neg_fpr,stream_mean_pts,stream_pct_of_series
+fedavg,Quantile Thresholding,0,0.7855,0.8361,0.7337,0.7972,0.8361,0.1,177.7,1.18
+fedavg,Median / MAD,1,0.4601,0.8611,0.4823,0.6978,0.8722,0.2072,3028.7,20.19
+fedavg,AR,0,0.3804,0.7542,0.4799,0.4784,0.8195,0.0473,2056.3,13.71
+fedavg,Local-Vol Corridor Consensus,1,0.3299,0.7505,0.4436,0.4018,0.8482,0.0319,1277.3,8.52
+fedavg,Isolation Forest,1,0.2661,0.8653,0.4037,0.4576,0.913,0.06,807.3,5.38
+fedavg,Robust Dyn-Dur,1,0.2889,0.5097,0.3648,0.6309,0.7287,0.03,439.0,2.93
+fedavg,NMS,1,0.2785,0.3486,0.3045,0.4071,0.8389,0.0266,476.0,3.17
+fedavg,Adaptive Trend-Deriv-Var,0,0.1039,0.6236,0.1756,0.288,1.0,0.058,1994.7,13.3
+fedprox_inv_loss,Quantile Thresholding,0,0.7855,0.8361,0.7337,0.7972,0.8361,0.1,177.7,1.18
+fedprox_inv_loss,Median / MAD,1,0.4601,0.8611,0.4823,0.6978,0.8722,0.2072,3028.7,20.19
+fedprox_inv_loss,AR,0,0.3804,0.7542,0.4799,0.4784,0.8195,0.0473,2056.3,13.71
+fedprox_inv_loss,Local-Vol Corridor Consensus,1,0.3315,0.7551,0.446,0.3956,0.8472,0.0327,1279.0,8.53
+fedprox_inv_loss,Isolation Forest,1,0.2661,0.8653,0.4037,0.4576,0.913,0.06,807.3,5.38
+fedprox_inv_loss,Robust Dyn-Dur,1,0.3104,0.5449,0.3911,0.6066,0.7315,0.0299,432.3,2.88
+fedprox_inv_loss,NMS,1,0.2785,0.3486,0.3045,0.4071,0.8389,0.0266,476.0,3.17
+fedprox_inv_loss,Adaptive Trend-Deriv-Var,0,0.1039,0.6236,0.1756,0.288,1.0,0.058,1994.7,13.3
+local_only,Quantile Thresholding,0,0.7855,0.8361,0.7337,0.7972,0.8361,0.1,177.7,1.18
+local_only,Median / MAD,1,0.4601,0.8611,0.4823,0.6978,0.8722,0.2072,3028.7,20.19
+local_only,AR,0,0.3804,0.7542,0.4799,0.4784,0.8195,0.0473,2056.3,13.71
+local_only,Local-Vol Corridor Consensus,1,0.3368,0.7486,0.4517,0.406,0.8417,0.0272,1288.0,8.59
+local_only,Isolation Forest,1,0.2661,0.8653,0.4037,0.4576,0.913,0.06,807.3,5.38
+local_only,Robust Dyn-Dur,1,0.3113,0.5505,0.3932,0.6419,0.7306,0.0299,438.3,2.92
+local_only,NMS,1,0.2785,0.3486,0.3045,0.4071,0.8389,0.0266,476.0,3.17
+local_only,Adaptive Trend-Deriv-Var,0,0.1039,0.6236,0.1756,0.288,1.0,0.058,1994.7,13.3

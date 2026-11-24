@@ -1,0 +1,10 @@
+method,exclusion_type,qss,avg_f1,avg_neg_fpr,stream_ratio,reason
+Robust Z-Score,config_disabled_in_enabled_methods,0.0,0.0,0.0,0.0,enabled_methods[method] == False
+Huber Regression,config_disabled_in_enabled_methods,0.0,0.0,0.0,0.0,enabled_methods[method] == False
+Static Conformal Prediction,config_disabled_in_enabled_methods,0.0,0.0,0.0,0.0,enabled_methods[method] == False
+CUSUM,config_disabled_in_enabled_methods,0.0,0.0,0.0,0.0,enabled_methods[method] == False
+Robbins-Monro Adaptive,config_disabled_in_enabled_methods,0.0,0.0,0.0,0.0,enabled_methods[method] == False
+Adaptive Conformal (ACI),config_disabled_in_enabled_methods,0.0,0.0,0.0,0.0,enabled_methods[method] == False
+EWMA Adaptive Threshold,config_disabled_in_enabled_methods,0.0,0.0,0.0,0.0,enabled_methods[method] == False
+Diff Corridor Hybrid,config_disabled_in_enabled_methods,0.0,0.0,0.0,0.0,enabled_methods[method] == False
+Median / MAD,math_qss_pruned,0.3854,0.4823,0.2072,0.2019,HighStreamOcc=20.19%>16%

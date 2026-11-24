@@ -1,0 +1,116 @@
+=== IEEE / MDPI Q1 MANUSCRIPT SUMMARY & LIMITATIONS ===
+Generated: 2026-11-23 18:36:54
+Modes: ('local_only', 'fedavg', 'fedprox_inv_loss') | Seeds: (42, 1042, 2042)
+Active methods (8): ['Median / MAD', 'AR', 'Quantile Thresholding', 'NMS', 'Robust Dyn-Dur', 'Adaptive Trend-Deriv-Var', 'Isolation Forest', 'Local-Vol Corridor Consensus']
+Explicitly excluded methods (8): ['Robust Z-Score', 'Huber Regression', 'Static Conformal Prediction', 'CUSUM', 'Robbins-Monro Adaptive', 'Adaptive Conformal (ACI)', 'EWMA Adaptive Threshold', 'Diff Corridor Hybrid']
+
+--- CROSS-MODE COMPARISON (3 SEEDS, CLEAN / ALL-VALID / STEP-TRANSITION) ---
+         fl_mode  fl_exchange  client  pers_clean_mse  net1_oos_mse  net2_oos_mse  net3_fedavg_oos_mse  net1_on_rep_mse  net2_on_raw_mse  pers_all_valid_mse  net1_all_valid_mse  net2_all_valid_mse  net3_all_valid_mse  mean_transition_pts  net1_transition_mse  net2_transition_mse  net3_transition_mse  transition_net2_vs_net1_impr_pct  transition_net3_vs_net1_impr_pct  net2_vs_net1_impr_pct  net3_fedavg_vs_net1_impr_pct  all_valid_net2_vs_net1_impr_pct  net1_oos_r2  net2_oos_r2  net3_fedavg_oos_r2  hi_anom_mse_impr_pct  net2_hi_r2  wilcoxon_mse_all_sig_holm  max_p_holm_mse
+          fedavg            1       1        0.000000      0.002262      0.001336             0.001266         0.002475         0.001289            0.090789            0.085494            0.086354            0.086329                167.3             0.275815             0.287254             0.287314                             -4.15                             -4.17                  40.93                         44.03                            -1.01       0.9102       0.9089              0.9091                 38.31      0.8792                       True        0.001112
+          fedavg            1       2        0.000000      0.004123      0.001961             0.001988         0.004109         0.002080            0.123099            0.123779            0.122537            0.122793                230.5             0.282994             0.294879             0.295302                             -4.20                             -4.35                  52.44                         51.79                             1.00       0.8479       0.8433              0.8433                 52.57      0.7644                       True        0.000073
+          fedavg            1       3        0.000403      0.003060      0.001615             0.001620         0.002994         0.001644            0.108114            0.098103            0.102254            0.102348                191.2             0.279481             0.298179             0.298499                             -6.69                             -6.80                  47.23                         47.08                            -4.23       0.8996       0.8991              0.8989                 37.97      0.8654                       True        0.000015
+fedprox_inv_loss            1       1        0.000000      0.001492      0.000677             0.001283         0.001467         0.000703            0.090789            0.087895            0.087526            0.086410                167.3             0.289754             0.294581             0.287614                             -1.67                              0.74                  54.63                         13.97                             0.42       0.9093       0.9082              0.9089                 62.77      0.8716                       True        0.000545
+fedprox_inv_loss            1       2        0.000000      0.003205      0.001458             0.002010         0.003022         0.001548            0.123099            0.125612            0.123239            0.122567                230.5             0.293329             0.298723             0.294896                             -1.84                             -0.53                  54.52                         37.28                             1.89       0.8426       0.8412              0.8430                 51.69      0.7780                       True        0.000197
+fedprox_inv_loss            1       3        0.000402      0.002180      0.001143             0.001626         0.002053         0.001199            0.108114            0.103490            0.104179            0.102635                191.2             0.297128             0.305260             0.299376                             -2.74                             -0.76                  47.57                         25.41                            -0.67       0.8966       0.8982              0.8989                 41.37      0.8776                       True        0.000383
+      local_only            0       1        0.000000      0.002263      0.000858             0.001283         0.002115         0.000982            0.090789            0.089164            0.087619            0.086210                167.3             0.293389             0.294528             0.286699                             -0.39                              2.28                  62.10                         43.33                             1.73       0.9071       0.9072              0.9083                 73.22      0.8708                       True        0.000105
+      local_only            0       2        0.000000      0.004345      0.001856             0.002023         0.003994         0.002194            0.123099            0.119432            0.122015            0.122974                230.5             0.277963             0.293375             0.295685                             -5.54                             -6.38                  57.29                         53.44                            -2.16       0.8441       0.8417              0.8428                 54.10      0.7691                       True        0.000035
+      local_only            0       3        0.000402      0.002317      0.001255             0.001652         0.002185         0.001321            0.108114            0.104215            0.104259            0.102462                191.2             0.298641             0.305340             0.298977                             -2.24                             -0.11                  45.84                         28.71                            -0.04       0.8955       0.8978              0.8988                 33.73      0.8668                       True        0.001196
+
+--- MULTI-SEED WILCOXON TEST WITH HOLM CORRECTION ---
+         fl_mode  fl_exchange  client metric  n_seeds  mean_net1_median  mean_net2_median  mean_rel_impr_pct  mean_r2_diff_pp  max_p_value_holm  all_significant_holm_lt_0_01
+          fedavg            1       1    mae        3          0.033290          0.023654          28.956667         0.000000          0.000079                          True
+          fedavg            1       1    mse        3          0.002149          0.001304          38.403333         0.000000          0.001112                          True
+          fedavg            1       1     r2        3          0.991319          0.995342           0.000000         0.403333          1.000000                         False
+          fedavg            1       2    mae        3          0.035187          0.018022          48.780000         0.000000          0.000213                          True
+          fedavg            1       2    mse        3          0.002815          0.001016          63.960000         0.000000          0.000073                          True
+          fedavg            1       2     r2        3          0.888748          0.887255           0.000000        -0.150000          1.000000                         False
+          fedavg            1       3    mae        3          0.035450          0.021587          38.936667         0.000000          0.000052                          True
+          fedavg            1       3    mse        3          0.002651          0.001237          52.900000         0.000000          0.000015                          True
+          fedavg            1       3     r2        3          0.977803          0.983847           0.000000         0.606667          1.000000                         False
+fedprox_inv_loss            1       1    mae        3          0.024697          0.018871          23.570000         0.000000          0.000545                          True
+fedprox_inv_loss            1       1    mse        3          0.001136          0.000500          55.970000         0.000000          0.000545                          True
+fedprox_inv_loss            1       1     r2        3          0.992892          0.996568           0.000000         0.363333          0.528686                         False
+fedprox_inv_loss            1       2    mae        3          0.026868          0.014281          46.650000         0.000000          0.000821                          True
+fedprox_inv_loss            1       2    mse        3          0.001329          0.000365          72.526667         0.000000          0.000197                          True
+fedprox_inv_loss            1       2     r2        3          0.884132          0.885936           0.000000         0.176667          0.528686                         False
+fedprox_inv_loss            1       3    mae        3          0.026536          0.017601          33.423333         0.000000          0.000748                          True
+fedprox_inv_loss            1       3    mse        3          0.001737          0.000390          77.563333         0.000000          0.000383                          True
+fedprox_inv_loss            1       3     r2        3          0.981261          0.987139           0.000000         0.590000          0.285288                         False
+      local_only            0       1    mae        3          0.029899          0.019097          36.013333         0.000000          0.001053                          True
+      local_only            0       1    mse        3          0.001398          0.000599          57.200000         0.000000          0.000105                          True
+      local_only            0       1     r2        3          0.985485          0.994371           0.000000         0.886667          0.481065                         False
+      local_only            0       2    mae        3          0.048206          0.030810          35.946667         0.000000          0.000310                          True
+      local_only            0       2    mse        3          0.004466          0.001497          66.116667         0.000000          0.000035                          True
+      local_only            0       2     r2        3          0.884096          0.885472           0.000000         0.140000          0.921809                         False
+      local_only            0       3    mae        3          0.030260          0.017873          40.936667         0.000000          0.001289                          True
+      local_only            0       3    mse        3          0.001401          0.000479          65.786667         0.000000          0.001196                          True
+      local_only            0       3     r2        3          0.982317          0.985967           0.000000         0.366667          0.236188                         False
+
+--- CONTROL VALIDATION BY SCENARIO (SPIKES VS ZERO-OUT SEGMENT) ---
+         fl_mode         scenario                       method  mean_precision  mean_recall  mean_f1  mean_event_f1  mean_event_recall  mean_neg_fpr
+          fedavg      spikes_only                 Median / MAD        0.483553     0.722227 0.497693       0.775587           0.744447      0.207184
+          fedavg      spikes_only        Quantile Thresholding        0.759200     0.672227 0.616853       0.729967           0.672227      0.100000
+          fedavg      spikes_only             Isolation Forest        0.274162     0.788891 0.406671       0.717222           0.825931      0.060000
+          fedavg      spikes_only                           AR        0.350280     0.566660 0.391553       0.630680           0.638900      0.047289
+          fedavg      spikes_only Local-Vol Corridor Consensus        0.353916     0.625924 0.441784       0.619413           0.696307      0.031882
+          fedavg      spikes_only                          NMS        0.478000     0.572213 0.517773       0.611853           0.677780      0.026589
+          fedavg      spikes_only     Adaptive Trend-Deriv-Var        0.159240     0.888887 0.267027       0.457887           1.000000      0.058024
+          fedavg      spikes_only               Robust Dyn-Dur        0.262216     0.383331 0.311298       0.398551           0.457409      0.030000
+          fedavg zero_out_segment        Quantile Thresholding        0.811753     1.000000 0.850593       0.864447           1.000000      0.100000
+          fedavg zero_out_segment               Robust Dyn-Dur        0.315507     0.636111 0.418327       0.863284           1.000000      0.030000
+          fedavg zero_out_segment                 Median / MAD        0.436633     1.000000 0.466927       0.620040           1.000000      0.207184
+          fedavg zero_out_segment                           AR        0.410500     0.941667 0.568240       0.326173           1.000000      0.047289
+          fedavg zero_out_segment                          NMS        0.079007     0.125000 0.091260       0.202440           1.000000      0.026589
+          fedavg zero_out_segment             Isolation Forest        0.258064     0.941667 0.400822       0.197984           1.000000      0.060000
+          fedavg zero_out_segment Local-Vol Corridor Consensus        0.305889     0.875000 0.445444       0.184209           1.000000      0.031882
+          fedavg zero_out_segment     Adaptive Trend-Deriv-Var        0.048460     0.358333 0.084207       0.118167           1.000000      0.058024
+fedprox_inv_loss      spikes_only                 Median / MAD        0.483553     0.722227 0.497693       0.775587           0.744447      0.207184
+fedprox_inv_loss      spikes_only        Quantile Thresholding        0.759200     0.672227 0.616853       0.729967           0.672227      0.100000
+fedprox_inv_loss      spikes_only             Isolation Forest        0.274162     0.788891 0.406671       0.717222           0.825931      0.060000
+fedprox_inv_loss      spikes_only                           AR        0.350280     0.566660 0.391553       0.630680           0.638900      0.047289
+fedprox_inv_loss      spikes_only Local-Vol Corridor Consensus        0.358131     0.635182 0.447780       0.620147           0.694453      0.032736
+fedprox_inv_loss      spikes_only                          NMS        0.478000     0.572213 0.517773       0.611853           0.677780      0.026589
+fedprox_inv_loss      spikes_only     Adaptive Trend-Deriv-Var        0.159240     0.888887 0.267027       0.457887           1.000000      0.058024
+fedprox_inv_loss      spikes_only               Robust Dyn-Dur        0.271924     0.403696 0.324878       0.400940           0.462964      0.029927
+fedprox_inv_loss zero_out_segment        Quantile Thresholding        0.811753     1.000000 0.850593       0.864447           1.000000      0.100000
+fedprox_inv_loss zero_out_segment               Robust Dyn-Dur        0.348838     0.686111 0.457229       0.812178           1.000000      0.029927
+fedprox_inv_loss zero_out_segment                 Median / MAD        0.436633     1.000000 0.466927       0.620040           1.000000      0.207184
+fedprox_inv_loss zero_out_segment                           AR        0.410500     0.941667 0.568240       0.326173           1.000000      0.047289
+fedprox_inv_loss zero_out_segment                          NMS        0.079007     0.125000 0.091260       0.202440           1.000000      0.026589
+fedprox_inv_loss zero_out_segment             Isolation Forest        0.258064     0.941667 0.400822       0.197984           1.000000      0.060000
+fedprox_inv_loss zero_out_segment Local-Vol Corridor Consensus        0.304856     0.875000 0.444156       0.171018           1.000000      0.032736
+fedprox_inv_loss zero_out_segment     Adaptive Trend-Deriv-Var        0.048460     0.358333 0.084207       0.118167           1.000000      0.058024
+      local_only      spikes_only                 Median / MAD        0.483553     0.722227 0.497693       0.775587           0.744447      0.207184
+      local_only      spikes_only        Quantile Thresholding        0.759200     0.672227 0.616853       0.729967           0.672227      0.100000
+      local_only      spikes_only             Isolation Forest        0.274162     0.788891 0.406671       0.717222           0.825931      0.060000
+      local_only      spikes_only                           AR        0.350280     0.566660 0.391553       0.630680           0.638900      0.047289
+      local_only      spikes_only                          NMS        0.478000     0.572213 0.517773       0.611853           0.677780      0.026589
+      local_only      spikes_only Local-Vol Corridor Consensus        0.354916     0.622220 0.443791       0.608696           0.683340      0.027182
+      local_only      spikes_only     Adaptive Trend-Deriv-Var        0.159240     0.888887 0.267027       0.457887           1.000000      0.058024
+      local_only      spikes_only               Robust Dyn-Dur        0.270024     0.398142 0.321680       0.398453           0.461107      0.029927
+      local_only zero_out_segment               Robust Dyn-Dur        0.352542     0.702778 0.464773       0.885298           1.000000      0.029927
+      local_only zero_out_segment        Quantile Thresholding        0.811753     1.000000 0.850593       0.864447           1.000000      0.100000
+      local_only zero_out_segment                 Median / MAD        0.436633     1.000000 0.466927       0.620040           1.000000      0.207184
+      local_only zero_out_segment                           AR        0.410500     0.941667 0.568240       0.326173           1.000000      0.047289
+      local_only zero_out_segment Local-Vol Corridor Consensus        0.318760     0.875000 0.459647       0.203236           1.000000      0.027182
+      local_only zero_out_segment                          NMS        0.079007     0.125000 0.091260       0.202440           1.000000      0.026589
+      local_only zero_out_segment             Isolation Forest        0.258064     0.941667 0.400822       0.197984           1.000000      0.060000
+      local_only zero_out_segment     Adaptive Trend-Deriv-Var        0.048460     0.358333 0.084207       0.118167           1.000000      0.058024
+
+--- QSS METHOD SELECTION TABLE ---
+                      method  exclusion_stage  avg_f1  avg_event_f1  avg_precision  avg_neg_fpr  stream_ratio  ctrl_score  occ_penalty    qss  kept_by_math         rejection_reason
+       Quantile Thresholding math_qss_pruning  0.7337        0.7972         0.7855       0.1000        0.0118      0.7799       1.0000 0.7799          True                   passed
+                          AR math_qss_pruning  0.4799        0.4784         0.3804       0.0473        0.1371      0.5496       1.0000 0.5496          True                   passed
+Local-Vol Corridor Consensus math_qss_pruning  0.4471        0.4011         0.3327       0.0306        0.0855      0.5230       1.0000 0.5230          True                   passed
+                         NMS math_qss_pruning  0.3045        0.4071         0.2785       0.0266        0.0317      0.4882       1.0000 0.4882          True                   passed
+              Robust Dyn-Dur math_qss_pruning  0.3830        0.6265         0.3035       0.0299        0.0291      0.4806       1.0000 0.4806          True                   passed
+            Isolation Forest math_qss_pruning  0.4037        0.4576         0.2661       0.0600        0.0538      0.4766       1.0000 0.4766          True                   passed
+                Median / MAD math_qss_pruning  0.4823        0.6978         0.4601       0.2072        0.2019      0.5389       0.7152 0.3854         False HighStreamOcc=20.19%>16%
+    Adaptive Trend-Deriv-Var math_qss_pruning  0.1756        0.2880         0.1039       0.0580        0.1330      0.3110       1.0000 0.3110          True                   passed
+
+--- KEY METHODOLOGICAL LIMITATIONS FOR Q1 DISCUSSION ---
+1. Forecast model is univariate residual LSTM on target lags; voltage is used only in consensus regime gating.
+2. Windowed repair uses neighboring window context and is not strictly causal in real-time streaming.
+3. Repair ratio is capped at 20% per window, limiting correction on prolonged shifts or drifts.
+4. Clean OOS MSE, all-valid MSE, step-transition MSE, and persistence baseline are reported jointly in tables.
+5. Natural anomalies lack manual event-level ground truth; control metrics rely on injected spikes and zero-out segments.
